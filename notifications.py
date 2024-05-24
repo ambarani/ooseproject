@@ -2,7 +2,7 @@ from functions.notifications import *
 from pymongo import MongoClient
 
 client = MongoClient(
-    'mongodb+srv://pancham:pancham@niggaballs.tjmtx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+    'mongodb+srv://barani:barani@cluster0.a3xevvl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 db = client['medicine_schedule']
 usersdb = db['users']
 
@@ -12,6 +12,7 @@ stop = []
 
 
 def notifications(user):
+    print(user)
     if user not in stop:
         upcoming = upcoming_notifications(user)
         if upcoming:
@@ -36,9 +37,10 @@ results = usersdb.find()
 if results:
     for result in results:
         users.append(result['_id'])
-
+print("hi")
 while True:
     for user in users:
+        print("user:", user)
         notifications(user)
 
 

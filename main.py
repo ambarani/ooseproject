@@ -16,10 +16,11 @@ app = Flask(__name__)
 app.secret_key = 'subhogay'
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 20 * 1000 * 1000
-
+print("hi")
 
 @app.route('/')
 def index():
+    print("hi")
     try:
         if session['login']:
             login = True
